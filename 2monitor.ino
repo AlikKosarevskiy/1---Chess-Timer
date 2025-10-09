@@ -147,8 +147,8 @@ void setup() {
   strip2.setBrightness(15);
   strip1.show();
   strip2.show();
-  drawNumberSingle(counter1, strip1, normalColor);
-  drawNumberSingle(counter2, strip2, normalColor);
+  drawNumberSingle(counter1, strip1, strip1.Color(50,50,50));
+  drawNumberSingle(counter2, strip2, strip1.Color(50,50,50));
 }
 
 // ---------- LOOP ----------
@@ -202,8 +202,8 @@ void loop() {
       flashRedCross(strip1, 3);
       counter1 = counterDefault;
       counter2 = counterDefault;
-      drawNumberSingle(counter1, strip1, normalColor);
-      drawNumberSingle(counter2, strip2, normalColor);
+      drawNumberSingle(counter1, strip1, strip1.Color(50,50,50));
+      drawNumberSingle(counter2, strip2, strip1.Color(50,50,50));
     }
   }
 
@@ -223,8 +223,8 @@ void loop() {
       flashRedCross(strip2, 3);
       counter1 = counterDefault;
       counter2 = counterDefault;
-      drawNumberSingle(counter1, strip1, normalColor);
-      drawNumberSingle(counter2, strip2, normalColor);
+      drawNumberSingle(counter1, strip1, strip1.Color(50,50,50));
+      drawNumberSingle(counter2, strip2, strip1.Color(50,50,50));
     }
   }
 
