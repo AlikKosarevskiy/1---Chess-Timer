@@ -139,10 +139,12 @@ void flashRed(Adafruit_NeoPixel &s, int times) {
 void flashRedCross(Adafruit_NeoPixel &s, int times) {
   // координаты пикселей, которые формируют крест
   // ЗАМЕНИ на реальные индексы твоего шрифта/матрицы!
-  int crossPixels[] = {0, 1, 9, 10, 18, 19, 27, 28, 36, 37, 45, 46, 54, 55, 63, 
-                        192, 193,201, 202, 210,211,219,220, 228,229,237,238,246,247,255,// диагональ ↘
-                       70, 71, 77,78, 84,85, 91,92, 98,99, 105,106, 112,113, 120, 
-                       134,135, 141,142, 148,149, 155,156, 162,163, 169,170, 176,177,184}; // диагональ ↙
+int crossPixels[] = {
+    // диагональ ↘
+    0, 17, 34, 51, 68, 85, 102, 119, 136, 153, 170, 187, 204, 221, 238, 255,
+    // диагональ ↙
+    15, 30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180, 195, 210, 225, 240
+  };
   int crossCount = sizeof(crossPixels) / sizeof(crossPixels[0]);
 s.clear();
     s.show();
@@ -227,7 +229,7 @@ void loop() {
 //      flashRed(strip1, 3);
       strip2.clear();
       strip2.show();
-      flashRedCross(strip1, 3);
+      flashRedCross(strip1, 5);
       counter1 = counterDefault;
       counter2 = counterDefault;
       drawNumberSingle(counter1, strip1, strip1.Color(50,50,50));
@@ -245,10 +247,10 @@ void loop() {
 
     if (counter2 == 0) {
       running2 = false;
-//      flashRed(strip2, 3);
+//      flashRed(strip2, 5);
       strip1.clear();
       strip1.show();
-      flashRedCross(strip2, 3);
+      flashRedCross(strip2, 5);
       counter1 = counterDefault;
       counter2 = counterDefault;
       drawNumberSingle(counter1, strip1, strip1.Color(50,50,50));
@@ -299,8 +301,8 @@ if (setupMode && (millis() - lastSetupAction > setupTimeout)) {
   // применяем новое значение
   counter1 = counterDefault;
   counter2 = counterDefault;
-  drawNumberSingle(counter1, strip1, normalColor);
-  drawNumberSingle(counter2, strip2, normalColor);
+  drawNumberSingle(counter1, strip1, strip1.Color(50,50,50));
+  drawNumberSingle(counter2, strip2, strip1.Color(50,50,50));
 }
 
 // --- кнопка 4: сброс ---
